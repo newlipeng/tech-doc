@@ -9,13 +9,41 @@
    * PATH目录中增加GOBIN，支持命令行
 
 3. 创建go项目，最好遵循gopath的规则，Path/src/ProjectName
-4. 在Path/src/ProjectName，创建main包和运行>go mod init <ProjectName> 命令初始化go.mod文件
+4. 在Path/src/ProjectName，创建main包和运行>go mod init <ProjectName> 命令初始化go.mod文件，初始化的go.mod文件内容如下
 ```
   module prodapi
 
   go 1.12
 ```
-5. 更新go.mod文件
+5. 写入简单的main.go文件（main包）Path/src/ProjectName/main.go
+```
+package main
+
+import (
+    "github.com/gin-gonic/gin"  //这里是需要靠go mod引入包
+    "os"
+)
+
+func main() {
+}
+```
+5. 运行>go mod tidy命令或者在IDE中go build ProjectName更新go.mod文件，会提示如何进行包的replace
+* 命令运行开始前
+```
+  module prodapi
+  go 1.12
+
+  replace (
+    golang.org/x/crypto => github.com/golang/crypto latest
+    golang.org/x/net => github.com/golang/net latest
+    golang.org/x/sync => github.com/golang/sync latest
+    golang.org/x/sys => github.com/golang/sys latest
+    golang.org/x/text => github.com/golang/text latest
+    golang.org/x/tools => github.com/golang/tools latest
+  )
+```
+* 命令运行结束后
+
 ```
   module prodapi
 
@@ -31,4 +59,13 @@
   )
 
   require github.com/gin-gonic/gin v1.4.0  
+```
+
+6. 引入本地包 main.go
+```
+import (
+    "github.com/gin-gonic/gin"
+    "os"
+    "ProjectName/route"
+)
 ```
