@@ -71,7 +71,7 @@ import (
 ```
 
 ### 注意事项
-* 当设置GOPATH路径时，go mod安装的内容在GOPATH第一个目录的pkg目录中；否则在user目录的go/pkg/...临时目录中
+* 当设置GOPATH路径时，go mod安装的模块在GOPATH第一个目录的pkg目录中；当没有设置GOPATH路径是，安装的模块在user目录的go/pkg/...临时目录中
 * 在IDEA的GO语言配置下，language>go>go module>开启 enable go modules integration，到此IDEA的go mod配置结束
 
 ### 结束，可以愉快的开发GO项目了
