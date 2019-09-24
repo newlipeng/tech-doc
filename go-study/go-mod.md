@@ -9,7 +9,7 @@
    * PATH目录中增加GOBIN，支持命令行
 
 3. 创建go项目，最好遵循gopath的规则，Path/src/ProjectName
-4. 在Path/src/ProjectName，创建main包和运行>go mod init <ProjectName> 命令初始化go.mod文件，初始化的go.mod文件内容如下
+4. 在Path/src/ProjectName，创建main包和运行>"go mod init <ProjectName>" 命令初始化go.mod文件，初始化的go.mod文件内容如下
 ```
   module prodapi
 
