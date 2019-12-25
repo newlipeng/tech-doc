@@ -1,4 +1,4 @@
-### go mod 环境配置（IDEA IDE版本）
+### go mod 环境配置（IDEA IDE版本，推荐使用GOLAND）
 
 1. 安装go1.12以上版本，go mod自动集成到go环境中
 2. go环境需要配置的环境变量有
