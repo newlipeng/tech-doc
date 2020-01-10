@@ -3,6 +3,7 @@
 ### 前言
 Go: Share Memory By Communicating
 章节建议使用Sync.Once和WaitGroup进行协程间通讯，其中Sync.Once采用atomic实现，WaitGroup采用channel实现，详细了解Channel会对协程间通讯很有好处
+[讲的非常清晰的设计分析（go channel）](../img/GopherCon_v10.0.pdf)
 
 ### CSP 模型
 CSP 模型全称为 communicating sequential processes，CSP 模型由并发执行实体(进程，线程或协程)，和消息通道组成，实体之间通过消息通道发送消息
