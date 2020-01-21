@@ -9,11 +9,12 @@ Go: Share Memory By Communicating
 CSP 模型全称为 communicating sequential processes，CSP 模型由并发执行实体(进程，线程或协程)，和消息通道组成，实体之间通过消息通道发送消息
 
 ### Channel特征
-并发（concurrency）是GO语言的重要特征，完成并发功能的是协程（goroutines），在协程间通信，父协程和子协程见通讯都可以通过通道（Channel）来完成。
+并发（concurrency）是GO语言的重要特征，完成并发功能的是协程（goroutines），在协程间通信，父协程和子协程间通讯都可以通过通道（Channel）来完成。
 Channel具备几个特征
 * 协程安全的，通过mutex实现
 * 存储和传输协程间的数据，共享hchan+数据实现
-* 用FIFO队列实现，循环队列，最大空间65535
+* 用FIFO队列实现，循环队列实现；chan存放的结构体的长度需要小于65536，当chan
+  struct其中struct较大时，尽量采用指针，提高性能
 * 可以控制协程的阻塞和运行，goroutine阻塞后自己挂起，对方gotoutine唤醒进入可执行协程队列
 * 可执行队列有16个空间（不知道看代码对不对）
 * 无缓冲管道，读写协程直接读写对方协程的数据区完成数据共享，并唤醒对方协程进入可执行协程队列中
